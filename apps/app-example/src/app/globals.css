@@ -1,1 +1,17 @@
-/* Stili globali dell'applicazione */ 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  /* Usiamo i valori standard AGID/Italia, che dovrebbero corrispondere ai token mappati */
+  @apply bg-white text-gray-900;
+  font-family: theme('fontFamily.sans');
+}
+
+/* Stile focus visibile obbligatorio A11Y */
+*:focus-visible {
+   /* Usa theme() per accedere ai token mappati in design-config */
+   outline: 3px solid theme('colors.primary'); /* Usa il token 'primary' mappato */
+   outline-offset: 2px;
+   border-radius: theme('borderRadius.sm'); /* Usa il token 'sm' mappato */
+} 
