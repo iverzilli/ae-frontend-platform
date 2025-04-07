@@ -97,7 +97,7 @@ Utilizzare sempre le **ultime versioni LTS o stabili supportate** al momento del
 *   **Framework Principale:** **Next.js v15.4.2+** (App Router obbligatorio)
 *   **Linguaggio:** **TypeScript v5.8.3+** (`strict: true` in `tsconfig.json`)
 *   **Gestione Stato (Core):** **Redux Toolkit (RTK) v2.3.4+** con **RTK Query** (per stato complesso e API). **React Hook Form v7.51.2+** con **Zod v3.23.8+** (per form). **Zustand v5.0.3+** (opzione secondaria per stato UI semplice).
-*   **Styling:** **Tailwind CSS v4.1.3+** configurato con **@italia/design-tokens** (ultima versione). **PostCSS v8.4.38+** (per Tailwind).
+*   **Styling:** **Tailwind CSS v3.4.1+** configurato con **design-tokens-italia v1.2.1+** (ultima versione). **PostCSS v8.4.38+** (per Tailwind).
 *   **Libreria Componenti UI (Base):** **@italia/design-react-kit** (ultima versione). Opzionalmente **Headless UI v2.2.1+** o **Radix UI v1.1.3+** *solo* come base non stilizzata per componenti custom necessari mancanti nel kit ufficiale.
 *   **Test Runner:** **Jest v29.7.0+**
 *   **Testing Library:** **React Testing Library (RTL) v16.3.0+**, **Jest-Axe v5.4.1+**
@@ -415,10 +415,10 @@ Utilizzare sempre le **ultime versioni LTS o stabili supportate** al momento del
 
 **4.3. Styling e Aderenza al Design System Italia (Tailwind + Token AGID)**
 
-*   **Configurazione Tailwind (`packages/design-config/tailwind.config.js`)**: Mappare rigorosamente `@italia/design-tokens`.
+*   **Configurazione Tailwind (`packages/design-config/tailwind.config.js`)**: Mappare rigorosamente `design-tokens-italia`.
     ```javascript
     // packages/design-config/tailwind.config.js (Snippet Chiave)
-    const designTokens = require('@italia/design-tokens/dist/tokens');
+    const designTokens = require('design-tokens-italia/dist/tokens');
 
     module.exports = {
       content: [ /* ... percorsi a apps e packages ... */ ],
