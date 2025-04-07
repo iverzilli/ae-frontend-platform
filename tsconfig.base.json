@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    /* Type Checking */
+    "strict": true, // Requisito Standard v1.2 (Sez. 3)
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "Bundler", // O 'NodeNext'. 'Bundler' è più moderno.
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".", // Base per i percorsi alias
+    "paths": {}, // Verrà popolato con gli alias dei pacchetti (@ae/*)
+
+    /* Language and Environment */
+    "target": "ES2020", // Compatibile con Node 20 e browser moderni
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve", // Richiesto da Next.js
+    "allowJs": true, // Permette file JS nel progetto
+    "isolatedModules": true,
+
+    /* Emit */
+    "noEmit": true, // Il file base non emette output, override nei pacchetti
+    "declaration": false, // Non generare .d.ts files a livello base
+
+    /* Completeness */
+    "skipLibCheck": true, // Salta il controllo dei tipi nelle librerie (.d.ts)
+    "incremental": true
+  },
+  "exclude": ["node_modules", ".turbo", "dist"]
+} 

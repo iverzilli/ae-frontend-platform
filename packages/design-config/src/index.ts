@@ -1,0 +1,1 @@
+// @ae/design-config: Configurazioni di design condivise (es. Tailwind, Design Tokens AGID) 
