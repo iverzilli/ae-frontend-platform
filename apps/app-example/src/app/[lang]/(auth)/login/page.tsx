@@ -1,3 +1,7 @@
-export default function LoginPage() {
-  return <div>Login</div>;
+export default function LoginPage({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  return <h1>Pagina di Login (Lingua: {params.lang})</h1>;
 } 
