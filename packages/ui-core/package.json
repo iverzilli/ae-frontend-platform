@@ -8,6 +8,7 @@
     "lint": "eslint .",
     "test": "jest"
   },
-  "dependencies": {},
-  "devDependencies": {}
-} 
+  "dependencies": {
+    "design-react-kit": "^5.7.0"
+  }
+}
