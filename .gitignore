@@ -87,3 +87,4 @@ Thumbs.db
 
 # Output Bundle Analyzer
 .next/analyze/ # Cartella di default per report bundle analyzer
+*storybook.log

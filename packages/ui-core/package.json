@@ -6,9 +6,21 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
-    "design-react-kit": "^5.8.0"
+    "design-react-kit": "^5.7.1"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^8.6.12",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/addon-webpack5-compiler-swc": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-webpack5": "^8.6.12",
+    "storybook": "^8.6.12"
   }
 }
