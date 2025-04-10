@@ -9,6 +9,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "design-react-kit": "^5.7.0"
+    "design-react-kit": "^5.8.0"
   }
 }

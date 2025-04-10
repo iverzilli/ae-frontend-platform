@@ -94,18 +94,18 @@ L'adozione di questo starter kit è **obbligatoria** per i nuovi progetti e fort
 
 Utilizzare sempre le **ultime versioni LTS o stabili supportate** al momento dell'avvio del progetto. Versioni indicative (da aggiornare regolarmente):
 
-*   **Framework Principale:** **Next.js v15.4.2+** (App Router obbligatorio)
-*   **Linguaggio:** **TypeScript v5.8.3+** (`strict: true` in `tsconfig.json`)
-*   **Gestione Stato (Core):** **Redux Toolkit (RTK) v2.3.4+** con **RTK Query** (per stato complesso e API). **React Hook Form v7.51.2+** con **Zod v3.23.8+** (per form). **Zustand v5.0.3+** (opzione secondaria per stato UI semplice).
-*   **Styling:** **Tailwind CSS v3.4.1+** configurato con **design-tokens-italia v1.2.1+** (ultima versione). **PostCSS v8.4.38+** (per Tailwind).
-*   **Libreria Componenti UI (Base):** **@italia/design-react-kit** (ultima versione). Opzionalmente **Headless UI v2.2.1+** o **Radix UI v1.1.3+** *solo* come base non stilizzata per componenti custom necessari mancanti nel kit ufficiale.
+*   **Framework Principale:** **Next.js v15.5.0+** (App Router obbligatorio)
+*   **Linguaggio:** **TypeScript v5.9.2+** (`strict: true` in `tsconfig.json`)
+*   **Gestione Stato (Core):** **Redux Toolkit (RTK) v2.4.0+** con **RTK Query** (per stato complesso e API). **React Hook Form v7.52.0+** con **Zod v3.24.0+** (per form). **Zustand v5.1.0+** (opzione secondaria per stato UI semplice).
+*   **Styling:** **Tailwind CSS v3.4.3+** configurato con **design-tokens-italia v1.3.0+** (ultima versione). **PostCSS v8.4.40+** (per Tailwind).
+*   **Libreria Componenti UI (Base):** **design-react-kit** (ultima versione stabile, attualmente v5.8.0). Opzionalmente **Headless UI v2.3.0+** o **Radix UI v2.1.0+** *solo* come base non stilizzata per componenti custom necessari mancanti nel kit ufficiale. **Nota:** design-react-kit ha dipendenze che richiedono React <19.0.0, mentre il progetto utilizza React 19. Monitorare eventuali problemi di compatibilità fino a quando non sarà disponibile una versione che supporti ufficialmente React 19.
 *   **Test Runner:** **Jest v29.7.0+**
-*   **Testing Library:** **React Testing Library (RTL) v16.3.0+**, **Jest-Axe v5.4.1+**
-*   **Testing E2E:** **Playwright v1.51.1+** con **@axe-core/playwright v4.9.1+**. (Alternativa: Cypress v13.13.1+ con cypress-axe v1.5.0+).
-*   **Autenticazione/Autorizzazione:** **Next-Auth / Auth.js v4.24.11+**
-*   **Validazione Dati:** **Zod v3.23.8+**
-*   **Linting/Formattazione:** **ESLint v9.6.0+**, **Prettier v3.3.2+**, **Husky v9.0.11+**, **lint-staged v15.2.7+**
-*   **Gestione Monorepo:** **Turborepo v2.0.7+** (Raccomandato) o **pnpm v9.5.0+** (workspaces)
+*   **Testing Library:** **React Testing Library (RTL) v16.4.0+**, **Jest-Axe v5.5.0+**
+*   **Testing E2E:** **Playwright v1.52.0+** con **@axe-core/playwright v4.9.2+**. (Alternativa: Cypress v13.14.0+ con cypress-axe v1.5.0+).
+*   **Autenticazione/Autorizzazione:** **Next-Auth / Auth.js v4.25.0+**
+*   **Validazione Dati:** **Zod v3.24.0+**
+*   **Linting/Formattazione:** **ESLint v9.7.0+**, **Prettier v3.4.0+**, **Husky v9.1.0+**, **lint-staged v15.3.0+**
+*   **Gestione Monorepo:** **Turborepo v2.7.0+** (Raccomandato) o **pnpm v9.8.0+** (workspaces)
 *   **Node.js:** **v20.x LTS** (o successiva LTS attiva)
 
 **4. Architettura Applicativa Dettagliata**
@@ -506,7 +506,7 @@ Utilizzare sempre le **ultime versioni LTS o stabili supportate** al momento del
 
 **6. Libreria di Componenti Fondamentale (`design-react-kit` e Custom UI)**
 
-*   **Uso Primario `@italia/design-react-kit`:** Obbligatorio.
+*   **Uso Primario `design-react-kit`:** Obbligatorio.
 *   **Componenti Custom in `packages/ui-core`:** Solo se mancanti nel kit, basati su Headless/Radix + utility Tailwind/Token AGID, A11Y-first. (Vedi esempio `Modal` Sez 6 v1.0/v1.1).
 *   **Storybook Obbligatorio:** Per `ui-core` e wrapping componenti `design-react-kit` usati. Test A11y (`@storybook/addon-a11y`) integrati. (Vedi esempio `.stories.tsx` Sez 6 v1.0/v1.1).
 
