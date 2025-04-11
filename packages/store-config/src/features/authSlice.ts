@@ -2,8 +2,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { apiSlice } from '../api';
 import * as z from 'zod';
-// Importa RootState dopo aver creato store.ts
-// import { RootState } from '../store'; // Temporaneamente commentato
+// Importa RootState da store.ts
+import { RootState } from '../store';
 
 // Definizione dell'interfaccia User
 export interface User {
@@ -89,7 +89,5 @@ export const { setCredentials, logout } = authSlice.actions;
 export default authSlice.reducer;
 
 // Esportiamo i selectors
-// Nota: RootState sarà definito in store.ts
-// Per ora commentiamo o usiamo 'any' temporaneamente
-export const selectCurrentUser = (state: any /* RootState */) => state.auth.user;
-export const selectAuthToken = (state: any /* RootState */) => state.auth.token;
+export const selectCurrentUser = (state: RootState) => state.auth.user;
+export const selectAuthToken = (state: RootState) => state.auth.token;
