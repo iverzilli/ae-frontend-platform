@@ -1,6 +1,7 @@
 // packages/store-config/src/features/authSlice.ts
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { apiSlice } from '../api';
+import * as z from 'zod';
 // Importa RootState dopo aver creato store.ts
 // import { RootState } from '../store'; // Temporaneamente commentato
 
@@ -24,17 +25,28 @@ const initialState: AuthState = {
   token: null,
 };
 
-// TODO: Definire UserApiResponseSchema con Zod (Task 3.5)
-type UserApiResponse = any;
+// Schema Zod per la risposta API utente
+const UserApiResponseSchema = z.object({
+  userId: z.string(),
+  userName: z.string(),
+  userEmail: z.string().email(),
+  cf: z.string(), // Assumendo che l'API ritorni questi campi
+});
 
 // Iniettiamo l'endpoint getUserProfile nell'apiSlice
 export const authApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUserProfile: builder.query<User, void>({
       query: () => '/user/profile',
-      transformResponse: (response: UserApiResponse) => {
-        // const parsed = UserApiResponseSchema.parse(response);
-        return response as User; // ADATTARE DOPO ZOD
+      transformResponse: (response) => {
+        // Validare e trasformare la risposta API nello stato User
+        const parsed = UserApiResponseSchema.parse(response);
+        return {
+          id: parsed.userId,
+          name: parsed.userName,
+          email: parsed.userEmail,
+          codiceFiscale: parsed.cf,
+        };
       },
       providesTags: ['User'],
     }),
