@@ -34,7 +34,7 @@ const UserApiResponseSchema = z.object({
 });
 
 // Iniettiamo l'endpoint getUserProfile nell'apiSlice
-export const authApiSlice = apiSlice.injectEndpoints({
+const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getUserProfile: builder.query<User, void>({
       query: () => '/user/profile',
@@ -54,7 +54,7 @@ export const authApiSlice = apiSlice.injectEndpoints({
 });
 
 // Esportiamo l'hook generato
-export const { useGetUserProfileQuery } = authApiSlice;
+export const { useGetUserProfileQuery } = authApi;
 
 // Creazione della slice
 const authSlice = createSlice({
