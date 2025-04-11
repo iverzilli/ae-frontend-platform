@@ -11,6 +11,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "clsx": "^2.0.0",
     "design-react-kit": "^5.7.1"
   },
   "devDependencies": {
