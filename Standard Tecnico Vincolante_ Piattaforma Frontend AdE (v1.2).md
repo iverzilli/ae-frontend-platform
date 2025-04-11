@@ -537,7 +537,7 @@ Utilizzare sempre le **ultime versioni LTS o stabili supportate** al momento del
 
 **8. Sicurezza "By Design": Approccio Olistico Frontend**
 
-**8.1. Validazione Rigorosa Input (Zod)**
+8.1. Validazione Rigorosa Input (Zod)
 
 *   Validazione Zod obbligatoria in API Routes / Server Actions.
 

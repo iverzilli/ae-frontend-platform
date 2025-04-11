@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.4",
-    "react-redux": "^9.2.0"
+    "react-redux": "^9.2.0",
+    "zod": "^3.23.8"
   }
 }
