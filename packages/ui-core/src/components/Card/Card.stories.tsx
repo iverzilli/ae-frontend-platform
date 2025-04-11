@@ -5,7 +5,12 @@ const meta = {
   title: 'UI Core/Card',
   component: Card,
   parameters: {
-    layout: 'centered',
+    layout: 'padded',
+    a11y: {
+      // element: '#root', // Target element per i test a11y (opzionale, default è il componente)
+      // config: { rules: [] }, // Disabilita/configura regole axe specifiche (usare con cautela)
+      // options: {},
+    },
   },
   tags: ['autodocs'],
   argTypes: {
