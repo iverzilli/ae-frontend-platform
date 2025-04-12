@@ -1,4 +1,4 @@
-﻿**Standard Tecnico Vincolante: Piattaforma Frontend AdE (v1.2)**
+**Standard Tecnico Vincolante: Piattaforma Frontend AdE (v1.2)**
 
 **Data:** 6 aprile 2025
 **Autore:** [Architetto Capo / Consulente Tecnico PA]

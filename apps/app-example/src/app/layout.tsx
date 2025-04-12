@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import React from 'react';
+import StoreProvider from '@/components/providers/StoreProvider';
 
 export const metadata: Metadata = {
   title: 'AdE App Example',
@@ -13,7 +14,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it"> {/* Impostare lang="it" come da standard AGID */}
-      <body>{children}</body>
+      <body>
+        <StoreProvider>
+          {children}
+        </StoreProvider>
+      </body>
     </html>
   );
-} 
+}
