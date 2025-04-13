@@ -190,6 +190,96 @@ export default async function ProfilePage({
 }
 ```
 
+## Utility di Internazionalizzazione
+
+### Sistema i18n
+
+Il sistema di internazionalizzazione (i18n) fornisce funzionalità per la gestione delle traduzioni nell'applicazione.
+
+**Percorso**: `packages/utils-ae/src/i18n.ts`
+
+**Funzionalità**:
+- Dizionario centralizzato delle traduzioni in italiano
+- Tipizzazione forte delle chiavi di traduzione con TypeScript
+- Supporto per l'interpolazione di parametri nelle stringhe
+- Gestione dei fallback per chiavi mancanti
+
+**Esempio di utilizzo base**:
+
+```tsx
+import { t } from '@ae/utils-ae';
+
+export default function WelcomeMessage() {
+  return (
+    <div>
+      <h1>{t('page.home.title', { lang: 'it' })}</h1>
+      <button>{t('common.submit')}</button>
+    </div>
+  );
+}
+```
+
+**Esempio con parametri dinamici**:
+
+```tsx
+import { t } from '@ae/utils-ae';
+
+export default function ProfileWelcome({ userName }: { userName: string }) {
+  return (
+    <div className="welcome-banner">
+      <p className="text-lg">
+        {t('page.profile.welcome', { name: userName })}
+      </p>
+      <button className="btn btn-primary">
+        {t('common.save')}
+      </button>
+    </div>
+  );
+}
+```
+
+**Esempio in un form**:
+
+```tsx
+import { t } from '@ae/utils-ae';
+import { useState } from 'react';
+
+export default function ContactForm() {
+  const [email, setEmail] = useState('');
+  const [isValid, setIsValid] = useState(true);
+  
+  const validateEmail = (value: string) => {
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    setIsValid(valid);
+    return valid;
+  };
+  
+  return (
+    <form className="space-y-4">
+      <div>
+        <label htmlFor="email">{t('form.profile.email.label')}</label>
+        <input 
+          type="email" 
+          id="email"
+          value={email}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            validateEmail(e.target.value);
+          }}
+          className={!isValid ? 'border-red-500' : ''}
+        />
+        {!isValid && (
+          <p className="text-red-500 text-sm">
+            {t('form.profile.email.invalid')}
+          </p>
+        )}
+      </div>
+      <button type="submit">{t('common.submit')}</button>
+    </form>
+  );
+}
+```
+
 ---
 
 ## Come Contribuire

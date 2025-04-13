@@ -18,3 +18,14 @@ Per i componenti custom non presenti nel kit ufficiale, è stata scelta **Radix 
 - **Comunità attiva**: Ampia adozione nella comunità React, con buon supporto e documentazione.
 
 L'uso di Radix UI è limitato esclusivamente ai componenti non disponibili nel design-react-kit ufficiale, come specificato nella Sezione 3 e 6 dello Standard Tecnico.
+
+## Sistema di Internazionalizzazione
+
+Il progetto implementa un sistema di internazionalizzazione (i18n) conforme alla Sezione 4.6 dello Standard Tecnico, basato sul package `@ae/utils-ae`. Questo sistema offre:
+
+- **Dizionario centralizzato**: Tutte le stringhe dell'applicazione sono estratte in un dizionario centralizzato per facilitare la manutenzione e la traduzione.
+- **Tipizzazione forte**: Le chiavi di traduzione sono tipizzate con TypeScript per prevenire errori e facilitare l'autocompletamento.
+- **Supporto per parametri**: La funzione di traduzione supporta l'interpolazione di parametri dinamici nelle stringhe.
+- **Fallback per chiavi mancanti**: Gestione automatica delle chiavi di traduzione mancanti con messaggi di avviso in console.
+
+L'implementazione attuale supporta la lingua italiana, con predisposizione per l'aggiunta di altre lingue in futuro.
