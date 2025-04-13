@@ -57,6 +57,11 @@ const translationsIt = {
   'auth.logout': 'Logout',
   'auth.loading': '...',
   
+  // Error handling
+  'error.global.message': 'Qualcosa è andato storto. Per favore, prova a ricaricare la pagina o riprova più tardi.',
+  'error.details': 'Dettagli Errore (Dev Only)',
+  'error.tryAgain': 'Riprova',
+  
   // Aggiungere qui altre chiavi necessarie...
 };
 
