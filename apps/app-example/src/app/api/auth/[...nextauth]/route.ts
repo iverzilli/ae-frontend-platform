@@ -41,11 +41,33 @@ export const authOptions: AuthOptions = {
       },
     }),
   ],
-  // Callbacks verranno aggiunti qui (Task 4.4)
+  // Callbacks per gestire token JWT e sessione
   callbacks: {
-    // async jwt({ token, account, profile }) { /* ... */ },
-    // async session({ session, token, user }) { /* ... */ },
-  },
+    async jwt({ token, user, account, profile }) {
+      // Fase iniziale di sign-in
+      if (account && user) {
+        token.idToken = account.id_token;
+        token.accessToken = account.access_token;
+        token.refreshToken = account.refresh_token;
+        token.expiresAt = account.expires_at; // Scadenza access token
+        token.userId = user.id; // o token.sub = user.id; (sub è standard)
+        // Aggiungi attributi custom dal profilo mappato o dall'utente
+        token.codiceFiscale = (user as any).codiceFiscale || (profile as any)?.fiscal_number;
+      }
+      // TODO: Logica per refresh token se necessario
+      return token;
+    },
+    async session({ session, token, user }) {
+      if (token) {
+        session.user.id = token.userId as string || token.sub;
+        // Nota: L'IDE potrebbe segnalare errore su session.user.codiceFiscale e session.accessToken
+        // perché i tipi non sono ancora stati estesi. Lo faremo nel prossimo task.
+        (session.user as any).codiceFiscale = token.codiceFiscale as string;
+        (session as any).accessToken = token.accessToken as string;
+      }
+      return session;
+    },
+  }
   // Strategy di sessione verrà configurata qui (Task 4.5)
   session: {
     // strategy: "jwt", // o "database"
