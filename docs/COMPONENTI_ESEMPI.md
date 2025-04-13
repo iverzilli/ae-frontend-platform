@@ -143,6 +143,53 @@ export default function UserSummaryComponent() {
 }
 ```
 
+## Pagine Protette
+
+### ProfilePage
+
+La pagina `ProfilePage` è un esempio di pagina protetta che richiede l'autenticazione dell'utente utilizzando NextAuth.js con protezione lato server.
+
+**Percorso**: `/app/[lang]/(main)/profile/page.tsx`
+
+**Funzionalità**:
+- Verifica l'autenticazione dell'utente utilizzando `getServerSession`
+- Reindirizza automaticamente alla pagina di login se l'utente non è autenticato
+- Supporta il routing internazionalizzato (parametro `lang`)
+- Visualizza i dati dell'utente dalla sessione (nome, email, codice fiscale)
+
+**Esempio di implementazione**:
+
+```tsx
+import { getServerSession } from "next-auth/next";
+import { redirect } from "next/navigation";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+
+export default async function ProfilePage({
+  params,
+}: {
+  params: { lang: string };
+}) {
+  const session = await getServerSession(authOptions);
+
+  // Se non c'è sessione, reindirizza alla pagina di login
+  if (!session) {
+    // Costruisci URL login con lingua corrente
+    const loginPath = `/${params.lang}/login`;
+    redirect(loginPath);
+  }
+
+  // Se la sessione esiste, mostra i dati protetti
+  return (
+    <div>
+      <h1>Profilo Utente Protetto (Lingua: {params.lang})</h1>
+      <p>Benvenuto/a, {session.user?.name ?? 'Utente'}!</p>
+      <p>Email: {session.user?.email ?? 'N/D'}</p>
+      {/* Altri dati dell'utente */}
+    </div>
+  );
+}
+```
+
 ---
 
 ## Come Contribuire
