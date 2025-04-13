@@ -26,7 +26,7 @@ function prepareResponseHeaders(request: NextRequest, nonce: string, correlation
       `object-src 'none'`,
       `base-uri 'self'`,
       // form-action permette 'self' e l'URL del provider SPID/CIE (da variabile env)
-      `form-action 'self' ${process.env.SPID_PROVIDER_URL || ''}`,
+      `form-action 'self' ${process.env.SPID_PROVIDER_URL}`,
       `frame-ancestors 'none'`,
       `upgrade-insecure-requests`
       // connect-src è commentato come nello snippet originale
