@@ -9,6 +9,9 @@ const translationsIt = {
   'common.cancel': 'Annulla',
   'common.save': 'Salva',
   'common.requiredField': 'Campo obbligatorio',
+  'common.notAvailable': 'N/D',
+  'common.language': 'Lingua',
+  'common.close': 'Chiudi',
 
   // Header / Navigazione
   'nav.dashboard': 'Dashboard',
@@ -28,7 +31,32 @@ const translationsIt = {
   'form.profile.name.label': 'Nome',
   'form.profile.email.label': 'Indirizzo Email',
   'form.profile.email.invalid': 'Indirizzo email non valido',
+  'form.profile.name.minLength': 'Il nome deve contenere almeno 2 caratteri',
+  'form.profile.name.maxLength': 'Il nome non può superare i 50 caratteri',
+  'form.profile.email.minLength': 'L\'email deve contenere almeno 5 caratteri',
+  'form.profile.email.maxLength': 'L\'email non può superare i 100 caratteri',
+  'form.profile.codiceFiscale.label': 'Codice Fiscale',
+  'form.profile.codiceFiscale.optional': 'Codice Fiscale (opzionale)',
+  'form.profile.codiceFiscale.invalid': 'Inserisci un codice fiscale valido (formato: XXXXXX00X00X000X)',
+  'form.profile.name.placeholder': 'Inserisci il tuo nome completo',
+  'form.profile.email.placeholder': 'Inserisci la tua email',
+  'form.profile.codiceFiscale.placeholder': 'Inserisci il tuo codice fiscale',
+  'form.profile.submit': 'Salva Profilo',
+  'form.profile.submitting': 'Invio in corso...',
+  'form.profile.success': 'Form inviato con successo!',
+  'form.profile.title': 'Profilo Utente',
 
+  // Utente
+  'user.loggedInAs': 'Accesso effettuato come:',
+  'user.notAuthenticated': 'Utente non autenticato.',
+  'user.codiceFiscaleLabel': 'CF',
+  'user.idLabel': 'ID',
+  
+  // Auth
+  'auth.loginWithSpid': 'Login con SPID/CIE',
+  'auth.logout': 'Logout',
+  'auth.loading': '...',
+  
   // Aggiungere qui altre chiavi necessarie...
 };
 
