@@ -68,11 +68,41 @@ export const authOptions: AuthOptions = {
       return session;
     },
   }
-  // Strategy di sessione verrà configurata qui (Task 4.5)
+  // Configurazione della strategia di sessione (Task 4.5)
   session: {
-    // strategy: "jwt", // o "database"
+    strategy: "jwt", // Usa JWT per la sessione
+    // maxAge: 30 * 24 * 60 * 60, // 30 giorni (opzionale)
+    // updateAge: 24 * 60 * 60, // 24 ore (opzionale)
   },
-  // Aggiungere altre opzioni necessarie (es. secret, pages, adapter)
+  // Configurazione JWT (opzionale se si usa NEXTAUTH_SECRET)
+  jwt: {
+    // secret: process.env.NEXTAUTH_JWT_SECRET, // Opzionale se NEXTAUTH_SECRET è già definito
+    // maxAge: 60 * 60 * 24 * 30, // Opzionale, default 30 giorni
+  },
+  // Configurazione specifica per i cookie
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`, // Prefisso __Secure- per https
+      options: {
+        httpOnly: true,
+        sameSite: 'lax', // 'lax' è un buon default, 'strict' se possibile ma può dare problemi con redirect OIDC
+        path: '/',
+        secure: process.env.NODE_ENV === 'production', // secure solo in prod (https)
+        // domain: 'example.com' // Specifica il dominio se necessario
+      }
+    },
+    // Configurazione per CSRF token
+    csrfToken: {
+      name: `__Host-next-auth.csrf-token`, // Prefisso __Host- più restrittivo (https, no domain, path=/)
+      options: {
+        httpOnly: true,
+        sameSite: 'lax', // Default per CSRF
+        path: '/',
+        secure: process.env.NODE_ENV === 'production',
+      }
+    }
+  },
+  // Aggiungere altre opzioni necessarie (es. pages, adapter)
   secret: process.env.NEXTAUTH_SECRET, // OBBLIGATORIO per produzione
   // pages: { signIn: '/auth/signin', /* ... */ }, // Pagine custom (opzionale)
 };
